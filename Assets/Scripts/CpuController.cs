@@ -5,13 +5,12 @@ using UnityEngine;
 public class CpuController : MonoBehaviour
 {
 	public float speed;
-	private Rigidbody2D ball;
+	public Rigidbody2D ball;
 	private Rigidbody2D rb2d;
 
 	// Use this for initialization
 	void Start ()
 	{
-		ball = GameObject.FindGameObjectWithTag ("Ball").GetComponent<Rigidbody2D> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 	}
 	

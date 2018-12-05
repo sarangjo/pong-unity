@@ -28,7 +28,7 @@ public class EndzoneController : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D collision)
 	{
 		if (collision.gameObject.CompareTag ("Ball")) {
-			collision.gameObject.BroadcastMessage ("Reset");
+			collision.gameObject.GetComponent<BallController> ().Reset ();
 			this.score++;
 		}
 	}

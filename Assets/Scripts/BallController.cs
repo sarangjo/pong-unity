@@ -33,7 +33,7 @@ public class BallController : MonoBehaviour
 		rb2d.velocity = rb2d.velocity * (speed / rb2d.velocity.magnitude);
 	}
 
-	void Reset ()
+	public void Reset ()
 	{
 		rb2d.MovePosition (new Vector2 (0, 0));
 		float angle = (Random.value * 0.6f * Mathf.PI) - (0.3f * Mathf.PI);
