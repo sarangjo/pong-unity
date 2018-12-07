@@ -18,18 +18,25 @@ public class EndzoneController : MonoBehaviour
 		}
 	}
 	public Text text;
-	public string playerName;				
+	public string playerName;
+
+	private Vector2 origin;
 
 	void Start()
 	{
 		this.score = 0;
+		this.origin = new Vector2 (transform.position.x, 100);
 	}
 
-	void OnCollisionEnter2D (Collision2D collision)
+	void FixedUpdate()
 	{
-		if (collision.gameObject.CompareTag ("Ball")) {
-			collision.gameObject.GetComponent<BallController> ().Reset ();
-			this.score++;
+		RaycastHit2D hit = Physics2D.Raycast (origin, Vector2.down, Mathf.Infinity, 1 << 8);
+
+		if (hit.collider != null) {
+			if (hit.collider.name.Equals("Ball")) {
+				hit.collider.GetComponent<BallController> ().Reset ();
+				this.score++;
+			}
 		}
 	}
 }
